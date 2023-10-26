@@ -9,7 +9,6 @@ us-east-2: us-east-2a, us-east-2b
 ### Table 1.1 Summary
 | Asset      | Purpose           | Size                                                                   | Qty                                                             | DR                                                                                                           |
 |------------|-------------------|------------------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 | EC2 | Runing application | t3.micro | 3 | Replicated in us-east-2 |
 | EC2 | Runing application | t3.micro | 3 | DR in us-east-1 |
 | EKS | For monitoring  | t3.micro | 1 cluster, 2 node | Replicated in us-east-2, create in multiple locations |
@@ -18,8 +17,8 @@ us-east-2: us-east-2a, us-east-2b
 | VPC | For network | N/A | 1 | DR in us-east-1 |
 | ALB | For dns failover and HA | N/A | 1 | Replicated in us-east-2 |
 | ALB | For dns failover and HA | N/A | 1 | DR in us-east-1 |
-| RDS | For primary database  | t3.micro | 1 cluster, 2 node | Replicated in us-east-2, create in multiple locations, retention for 5 days |
-| RDS | For secondary database | t3.micro | 1 cluster, 2 node | DR in us-east-1, create in multiple locations, retention for 5 days |
+| RDS | For primary database  | t3.small | 1 cluster, 2 node | Replicated in us-east-2, create in multiple locations, retention for 5 days |
+| RDS | For secondary database | t3.small | 1 cluster, 2 node | DR in us-east-1, create in multiple locations, retention for 5 days |
 | S3  | For store teraform backend information | N/A | 1 | Store teraform setting, config for backend infrastructures |
 | Github | For store teraform scripts | N/A | 1 | Using github action or codepipeline for CICD |
 
