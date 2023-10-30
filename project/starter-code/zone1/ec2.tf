@@ -7,4 +7,5 @@
    private_subnet_ids = module.vpc.private_subnet_ids
    public_subnet_ids  = module.vpc.public_subnet_ids
    vpc_id             = module.vpc.vpc_id
+   alb_sg_id          = module.project_alb.alb_sg
  }
