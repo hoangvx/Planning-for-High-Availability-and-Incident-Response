@@ -2,7 +2,7 @@ variable primary_db_cluster_arn {}
 
 resource "aws_rds_cluster_parameter_group" "cluster_pg-s" {
   name   = "udacity-pg-s"
-  family = "aurora5.7"
+  family = "aurora5.6"
 
   parameter {
     name  = "binlog_format"    
