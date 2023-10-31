@@ -13,7 +13,7 @@
 
 resource "aws_rds_cluster_parameter_group" "cluster_pg" {
   name   = "udacity-pg-p"
-  family = "aurora5.6"
+  family = "aurora-mysql5.7"
 
   parameter {
     name  = "binlog_format"    
