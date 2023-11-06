@@ -64,8 +64,8 @@ resource "aws_rds_cluster_instance" "udacity_instance" {
   cluster_identifier   = aws_rds_cluster.udacity_cluster.id
   instance_class       = "db.t2.small"
   db_subnet_group_name = aws_db_subnet_group.udacity_db_subnet_group.name
-  engine               = aws_rds_cluster.default.engine
-  engine_version       = aws_rds_cluster.default.engine_version
+  engine               = aws_rds_cluster.udacity_cluster.engine
+  engine_version       = aws_rds_cluster.udacity_cluster.engine_version
 }
 
 resource "aws_security_group" "db_sg_1" {
