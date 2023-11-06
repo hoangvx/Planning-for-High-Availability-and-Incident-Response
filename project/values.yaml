@@ -1368,7 +1368,7 @@ prometheusOperator:
     patch:
       enabled: true
       image:
-        repository: jettech/kube-webhook-certgen
+        repository: gcr.io/jetstack-images/kube-webhook-certgen
         tag: v1.5.2
         sha: ""
         pullPolicy: IfNotPresent
