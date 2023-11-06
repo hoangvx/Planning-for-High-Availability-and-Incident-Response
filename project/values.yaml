@@ -111,7 +111,6 @@ global:
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
   imagePullSecrets: []
-  imageRegistry: "docker.io"
   # - name: "image-pull-secret"
 
 ## Configuration for alertmanager
@@ -1369,6 +1368,7 @@ prometheusOperator:
     patch:
       enabled: true
       image:
+        registry: docker.io 
         repository: jettech/kube-webhook-certgen
         tag: v1.5.2
         sha: ""
