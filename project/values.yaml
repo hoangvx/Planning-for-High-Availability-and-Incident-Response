@@ -111,6 +111,7 @@ global:
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
   imagePullSecrets: []
+  imageRegistry: "gcr.io"
   # - name: "image-pull-secret"
 
 ## Configuration for alertmanager
