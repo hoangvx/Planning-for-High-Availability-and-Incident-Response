@@ -396,7 +396,7 @@ alertmanager:
     ## Image of Alertmanager
     ##
     image:
-      repository: quay.io/prometheus/alertmanager
+      repository: prometheus/alertmanager
       tag: v0.22.2
       sha: ""
 
@@ -1593,7 +1593,7 @@ prometheusOperator:
   ## Prometheus-config-reloader image to use for config and rule reloading
   ##
   prometheusConfigReloaderImage:
-    repository: quay.io/prometheus-operator/prometheus-config-reloader
+    repository: prometheus-operator/prometheus-config-reloader
     tag: v0.49.0
     sha: ""
 
@@ -1608,7 +1608,7 @@ prometheusOperator:
   ## Thanos side-car image when configured
   ##
   thanosImage:
-    repository: quay.io/thanos/thanos
+    repository: thanos/thanos
     tag: v0.17.2
     sha: ""
 
@@ -1961,7 +1961,7 @@ prometheus:
     ## Image of Prometheus.
     ##
     image:
-      repository: quay.io/prometheus/prometheus
+      repository: prometheus/prometheus
       tag: v2.28.1
       sha: ""
 
