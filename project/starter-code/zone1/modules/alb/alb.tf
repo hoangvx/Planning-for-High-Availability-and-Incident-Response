@@ -8,7 +8,9 @@ resource "aws_lb" "udacity" {
   load_balancer_type    = "application"
 
   security_groups       = [aws_security_group.alb_sg.id]
-  subnets               = [for subnet in subnets_id : subnet]
+  subnets               = var.subnets_id
+
+  enable_deletion_protection = false
 }
 
 resource "aws_security_group" "alb_sg" {
@@ -36,15 +38,9 @@ resource "aws_security_group" "alb_sg" {
 }
 
 resource "aws_lb_target_group_attachment" "udacity_tg_attachment" {
-  # covert a list of instance objects to a map with instance ID as the key, and an instance
-  # object as the value.
-  for_each = {
-    for k, v in ec2 :
-    v.id => v
-  }
-
+  count = 3
   target_group_arn = aws_lb_target_group.udacity_tg.arn
-  target_id        = each.value.id
+  target_id        = var.ec2.*.id[count.index]
   port             = 80
 }
 
