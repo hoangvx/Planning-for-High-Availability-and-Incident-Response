@@ -33,6 +33,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   engine_mode              = "provisioned"
   skip_final_snapshot      = true
   storage_encrypted        = false
+  backup_retention_period  = 5
   depends_on = [aws_rds_cluster_parameter_group.cluster_pg-s]
 }
 
