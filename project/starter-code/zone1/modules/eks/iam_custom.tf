@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "eks_cluster_role_cloudwatch_policy" {
-   name        = "app-${var.name}-eks-cluster-role-cloudwatch-policy"
-   description = "Policy allowing cloudwatch access to ${var.name} resources."
-   policy      = <<POLICY
+  name        = "app-${var.name}-eks-cluster-role-cloudwatch-policy"
+  description = "Policy allowing cloudwatch access to ${var.name} resources."
+  policy      = <<POLICY
 {
    "Version": "2012-10-17",
    "Statement": [
@@ -22,11 +22,11 @@ resource "aws_iam_policy" "eks_cluster_role_cloudwatch_policy" {
 POLICY
 }
 
- resource "aws_iam_policy" "eks_node_instance_policy" {
-   name        = "app-${var.name}-instance-policy"
-   description = "Policy allowing access to ${var.name} resources."
+resource "aws_iam_policy" "eks_node_instance_policy" {
+  name        = "app-${var.name}-instance-policy"
+  description = "Policy allowing access to ${var.name} resources."
 
-   policy = <<EOF
+  policy = <<EOF
 {
    "Version": "2012-10-17",
    "Statement": [
@@ -88,4 +88,4 @@ POLICY
    ]
 }
  EOF
- }
+}

@@ -1,20 +1,27 @@
 terraform {
-   backend "s3" {
-     bucket = "udacity-tf-hoangvx"
-     key    = "terraform/terraform.tfstate"
-     region = "us-east-2"
-   }
- }
+  backend "s3" {
+    bucket = "udacity-tf-hoangvx"
+    key    = "terraform/terraform.tfstate"
+    region = "us-east-2"
+  }
 
- provider "aws" {
-   region = "us-east-2"
-   
-   default_tags {
-     tags = local.tags
-   }
- }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
 
- provider "aws" {
+provider "aws" {
+  region = "us-east-2"
+
+  default_tags {
+    tags = local.tags
+  }
+}
+
+provider "aws" {
   alias  = "usw1"
   region = "us-west-1"
 }

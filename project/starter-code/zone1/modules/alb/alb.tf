@@ -3,25 +3,25 @@ variable "subnets_id" {}
 variable "ec2" {}
 
 resource "aws_lb" "udacity" {
-  name                  = "udacity"
-  internal              = false
-  load_balancer_type    = "application"
+  name               = "udacity"
+  internal           = false
+  load_balancer_type = "application"
 
-  security_groups       = [aws_security_group.alb_sg.id]
-  subnets               = var.subnets_id
+  security_groups = [aws_security_group.alb_sg.id]
+  subnets         = var.subnets_id
 
   enable_deletion_protection = false
 }
 
 resource "aws_security_group" "alb_sg" {
-  name        = "alb_sg"
-  vpc_id      = var.vpc_id
+  name   = "alb_sg"
+  vpc_id = var.vpc_id
 
-  ingress {    
+  ingress {
     description = "web port"
-    from_port   = 80    
+    from_port   = 80
     to_port     = 80
-    protocol    = "tcp"    
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -38,7 +38,7 @@ resource "aws_security_group" "alb_sg" {
 }
 
 resource "aws_lb_target_group_attachment" "udacity_tg_attachment" {
-  count = 3
+  count            = 3
   target_group_arn = aws_lb_target_group.udacity_tg.arn
   target_id        = var.ec2.*.id[count.index]
   port             = 80

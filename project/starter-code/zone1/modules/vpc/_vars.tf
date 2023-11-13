@@ -1,18 +1,18 @@
 variable "name" {}
- variable "cidr_block" {}
+variable "cidr_block" {}
 
- variable "azs" {
-   type = list(string)
- }
+variable "azs" {
+  type = list(string)
+}
 
- variable "public_subnet_tags" {
-   default = {}
- }
+variable "public_subnet_tags" {
+  default = {}
+}
 
- variable "private_subnet_tags" {
-   default = {}
- }
+variable "private_subnet_tags" {
+  default = {}
+}
 
- variable "account_owner" {
-   default = ""
- }
+variable "account_owner" {
+  default = ""
+}
